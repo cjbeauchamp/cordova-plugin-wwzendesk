@@ -35,8 +35,6 @@
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Email was null"];
     if(command.arguments.count > 0) {
         NSString *email = [command.arguments objectAtIndex:0];
-        NSLog(@"Email: %@", email);
-
         if(email != nil) {
             ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
             identity.email = email;
