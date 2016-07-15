@@ -22,7 +22,7 @@
 #include "TargetConditionals.h"
 
 #import <Cordova/CDV.h>
-#import "CDVDevice.h"
+#import "WWZendesk.h"
 
 @implementation UIDevice (ModelVersion)
 
@@ -41,10 +41,10 @@
 
 @end
 
-@interface CDVDevice () {}
+@interface WWZendesk () {}
 @end
 
-@implementation CDVDevice
+@implementation WWZendesk
 
 - (NSString*)uniqueAppInstanceIdentifier:(UIDevice*)device
 {
