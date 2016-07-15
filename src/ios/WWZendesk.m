@@ -73,7 +73,7 @@
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command
 {
     NSString *email = [command.arguments objectAtIndex:0];
-    NSLog("Email: %@", email);
+    NSLog(@"Email: %@", email);
 }
 
 - (void)getDeviceInfo:(CDVInvokedUrlCommand*)command
