@@ -70,10 +70,16 @@
     return app_uuid;
 }
 
+- (void) showHelpdesk:(CDVInvokedUrlCommand*)command
+{
+    NSString *email = [command.arguments objectAtIndex:0];
+    NSLog("Email: %@", email);
+}
+
 - (void)getDeviceInfo:(CDVInvokedUrlCommand*)command
 {
+
     NSDictionary* deviceProperties = [self deviceProperties];
-    NSLog(deviceProperties);
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceProperties];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
