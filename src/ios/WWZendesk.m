@@ -24,6 +24,10 @@
 #import <Cordova/CDV.h>
 #import "WWZendesk.h"
 
+// project-specific
+#import "AppDelegate.h"
+#import <ZendeskSDK/ZendeskSDK.h>
+
 @implementation WWZendesk
 
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command
@@ -34,6 +38,12 @@
         NSLog(@"Email: %@", email);
 
         if(email != nil) {
+            ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
+            identity.email = email;
+            [ZDKConfig instance].userIdentity = identity;
+            
+            [ZDKHelpCenter presentHelpCenterWithViewController:[AppDelegate sharedDelegate].viewController];
+
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         }
     }
