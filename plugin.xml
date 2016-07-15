@@ -35,13 +35,13 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="Device">
-                <param name="ios-package" value="CDVDevice"/>
+            <feature name="WWZendesk">
+                <param name="ios-package" value="WWZendesk"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVDevice.h" />
-        <source-file src="src/ios/CDVDevice.m" />
+        <header-file src="src/ios/WWZendesk.h" />
+        <source-file src="src/ios/WWZendesk.m" />
     </platform>
 
 </plugin>
