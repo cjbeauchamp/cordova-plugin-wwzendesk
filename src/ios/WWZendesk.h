@@ -21,11 +21,7 @@
 #import <Cordova/CDVPlugin.h>
 
 @interface WWZendesk : CDVPlugin
-{}
 
-+ (NSString*)cordovaVersion;
-
-- (void)getDeviceInfo:(CDVInvokedUrlCommand*)command;
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command;
 
 @end
