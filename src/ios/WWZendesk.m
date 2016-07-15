@@ -28,12 +28,14 @@
 
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command
 {
-    NSString *email = [command.arguments objectAtIndex:0];
-    NSLog(@"Email: %@", email);
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Email was null"];
+    if(command.arguments.count > 0) {
+        NSString *email = [command.arguments objectAtIndex:0];
+        NSLog(@"Email: %@", email);
 
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    if(email == nil) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Email was null"];
+        if(email != nil) {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        }
     }
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
