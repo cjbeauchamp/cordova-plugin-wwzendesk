@@ -32,15 +32,22 @@
 
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command
 {
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Email was null"];
-    if(command.arguments.count > 0) {
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"A param was null"];
+    if(command.arguments.count > 3) {
         NSString *email = [command.arguments objectAtIndex:0];
-        if(email != nil) {
+        NSString *appID = [command.arguments objectAtIndex:1];
+        NSString *zendeskUrl = [command.arguments objectAtIndex:2];
+        NSString *clientId = [command.arguments objectAtIndex:3];
+
+        if(email != nil && appID != nil && zendeskUrl != nil && clientId != nil) {
+
+            [[ZDKConfig instance] initializeWithAppId:appID zendeskUrl:zendeskUrl clientId:clientId];
+
             ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
             identity.email = email;
             [ZDKConfig instance].userIdentity = identity;
             
-            [ZDKHelpCenter presentHelpCenterWithViewController:[AppDelegate sharedDelegate].viewController];
+            [ZDKHelpCenter presentHelpCenterWithViewController:((AppDelegate *)[UIApplication sharedApplication].delegate).viewController];
 
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         }
