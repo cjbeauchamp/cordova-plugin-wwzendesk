@@ -26,11 +26,11 @@
     <license>Apache 2.0</license>
     <keywords>cordova</keywords>
     <repo>https://github.com/cjbeauchamp/cordova-plugin-wwzendesk.git</repo>
-
+<!-- 
     <js-module src="www/device.js" name="device">
         <clobbers target="device" />
     </js-module>
-
+ -->
 
     <!-- ios -->
     <platform name="ios">
