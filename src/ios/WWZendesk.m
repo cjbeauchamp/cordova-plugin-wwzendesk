@@ -32,6 +32,13 @@
 
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command
 {
+    NSLog("NSLOGG");
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"A param was null"];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+- (void) showHelpdesk:(CDVInvokedUrlCommand*)command
+{
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"A param was null"];
     if(command.arguments.count > 3) {
         NSString *email = [command.arguments objectAtIndex:0];
@@ -47,7 +54,10 @@
             identity.email = email;
             [ZDKConfig instance].userIdentity = identity;
             
-            [ZDKHelpCenter presentHelpCenterWithViewController:((AppDelegate *)[UIApplication sharedApplication].delegate).viewController];
+            [ZDKHelpCenter presentHelpCenterWithViewController:((AppDelegate *)[UIApplication sharedApplication].delegate).viewController
+                                            filterByCategoryId: @"203242307"
+                                                  categoryName: @"General"
+                                                   layoutGuide: ZDKLayoutRespectAll];
 
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         }

@@ -23,5 +23,6 @@
 @interface WWZendesk : CDVPlugin
 
 - (void) showHelpdesk:(CDVInvokedUrlCommand*)command;
+- (void) testCallback:(CDVInvokedUrlCommand*)command;
 
 @end
