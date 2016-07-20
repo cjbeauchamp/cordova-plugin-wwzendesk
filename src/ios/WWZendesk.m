@@ -32,7 +32,7 @@
 
 - (void) testCallback:(CDVInvokedUrlCommand*)command
 {
-    NSLog("NSLOGG");
+    NSLog(@"NSLOGG");
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"A param was null"];
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
