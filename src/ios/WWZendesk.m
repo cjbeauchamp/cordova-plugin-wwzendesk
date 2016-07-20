@@ -30,7 +30,7 @@
 
 @implementation WWZendesk
 
-- (void) showHelpdesk:(CDVInvokedUrlCommand*)command
+- (void) testCallback:(CDVInvokedUrlCommand*)command
 {
     NSLog("NSLOGG");
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"A param was null"];
